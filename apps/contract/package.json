@@ -6,14 +6,16 @@
   "scripts": {
     "node": "pnpm hardhat node",
     "build": "pnpm hardhat compile",
-    "test": "pnpm hardhat test"
+    "test": "pnpm hardhat test",
+    "clean": "rimraf artifacts cache"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@nomicfoundation/hardhat-toolbox-viem": "^3.0.0",
-    "hardhat": "^2.22.17"
+    "hardhat": "^2.22.17",
+    "rimraf": "^6.0.1"
   },
   "dependencies": {
     "@openzeppelin/contracts": "^5.1.0"
