@@ -8,13 +8,19 @@ contract RedEnvelopeDoge is ERC721URIStorage {
 
   constructor() ERC721("Red Envelope Doge", "RPDoge") { }
 
-  mapping(uint256 => uint256) private balances;
+  mapping(uint256 => uint8) private rpdNums;
+  mapping(uint256 => uint256) private rpdBalances;
+  mapping(uint256 => bytes32) private rpdMklRoots;
 
-  function mint(address player, string memory tokenURI) public payable returns (uint256) {
+  function mint(
+    uint8 num,
+    bytes32 mklRoot
+  ) public payable returns (uint256) {
     uint256 tokenId = _nextTokenId++;
-    _mint(player, tokenId);
-    _setTokenURI(tokenId, tokenURI);
-    balances[tokenId] = msg.value;
+    _mint(_msgSender(), tokenId);
+    rpdNums[tokenId] = num;
+    rpdBalances[tokenId] = msg.value;
+    rpdMklRoots[tokenId] = mklRoot;
     return tokenId;
   }
 }
