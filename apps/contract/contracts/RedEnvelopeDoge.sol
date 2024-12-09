@@ -1,9 +1,9 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.28;
 
-import { ERC721URIStorage, ERC721 } from "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
+import { ERC721 } from "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 
-contract RedEnvelopeDoge is ERC721URIStorage {
+contract RedEnvelopeDoge is ERC721 {
   uint256 private _nextTokenId;
   string private baseURI;
 
