@@ -5,6 +5,7 @@ import { ERC721URIStorage, ERC721 } from "@openzeppelin/contracts/token/ERC721/e
 
 contract RedEnvelopeDoge is ERC721URIStorage {
   uint256 private _nextTokenId;
+  string private baseURI;
 
   constructor() ERC721("Red Envelope Doge", "RPDoge") { }
 
@@ -22,5 +23,13 @@ contract RedEnvelopeDoge is ERC721URIStorage {
     rpdBalances[tokenId] = msg.value;
     rpdMklRoots[tokenId] = mklRoot;
     return tokenId;
+  }
+
+  function _baseURI() internal view virtual override returns (string memory) {
+    return baseURI;
+  }
+
+  function setBaseURI(string memory newBaseURI) public {
+    baseURI = newBaseURI;
   }
 }
