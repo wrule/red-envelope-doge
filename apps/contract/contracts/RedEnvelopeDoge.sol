@@ -2,12 +2,13 @@
 pragma solidity ^0.8.28;
 
 import { ERC721 } from "@openzeppelin/contracts/token/ERC721/ERC721.sol";
+import { Ownable2Step } from "@openzeppelin/contracts/access/Ownable2Step.sol";
 
-contract RedEnvelopeDoge is ERC721 {
+contract RedEnvelopeDoge is ERC721, Ownable2Step {
   uint256 private _nextTokenId;
   string private baseURI;
 
-  constructor() ERC721("Red Envelope Doge", "RPDoge") { }
+  constructor() ERC721("Red Envelope Doge", "RPDoge") Ownable(msg.sender) { }
 
   mapping(uint256 => uint8) private rpdNums;
   mapping(uint256 => uint256) private rpdBalances;
@@ -29,7 +30,7 @@ contract RedEnvelopeDoge is ERC721 {
     return baseURI;
   }
 
-  function setBaseURI(string memory newBaseURI) public {
+  function setBaseURI(string memory newBaseURI) public onlyOwner {
     baseURI = newBaseURI;
   }
 }
