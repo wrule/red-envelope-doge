@@ -16,6 +16,8 @@ contract RedEnvelopeDoge is ERC721, Ownable2Step {
   mapping(uint256 => uint8) private rpdNums;
   mapping(uint256 => uint256) private rpdBalances;
   mapping(uint256 => bytes32) private rpdMklRoots;
+  mapping(uint256 => uint256) private rpdRandom;
+  mapping(uint256 => address) private rpdFirst;
 
   error InsufficientValue(uint256 required, uint256 provided);
 
