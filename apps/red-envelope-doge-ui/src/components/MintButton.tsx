@@ -59,6 +59,8 @@ const MintButton = () => {
         alt="rp-doge"
         width={200}
         height={200}
+        loading="eager"
+        priority
       />
       <span className="relative flex items-center gap-3">
         <span className="text-4xl animate-bounce">🧧</span>
