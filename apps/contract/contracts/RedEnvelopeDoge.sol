@@ -1,10 +1,13 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.28;
 
+import { Strings } from "@openzeppelin/contracts/utils/Strings.sol";
 import { ERC721 } from "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import { Ownable2Step, Ownable } from "@openzeppelin/contracts/access/Ownable2Step.sol";
 
 contract RedEnvelopeDoge is ERC721, Ownable2Step {
+  using Strings for uint256;
+
   uint256 private _nextTokenId;
   string private baseURI;
 
@@ -37,5 +40,10 @@ contract RedEnvelopeDoge is ERC721, Ownable2Step {
 
   function setBaseURI(string memory newBaseURI) public onlyOwner {
     baseURI = newBaseURI;
+  }
+
+  function tokenURI(uint256 tokenId) public view virtual override returns (string memory) {
+    _requireOwned(tokenId);
+    return bytes(baseURI).length > 0 ? string.concat(baseURI, "?id=", tokenId.toString()) : "";
   }
 }
