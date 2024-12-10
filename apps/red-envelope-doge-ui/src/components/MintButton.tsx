@@ -34,7 +34,6 @@ const MintButton = () => {
         before:ease-in-out
         hover:before:translate-x-full
       ">
-      {/* 光晕效果 */}
       <div className="
         absolute inset-0
         bg-gradient-to-r from-ingot-500/0 via-ingot-500/20 to-ingot-500/0
@@ -43,8 +42,6 @@ const MintButton = () => {
         group-hover:opacity-100
         transition-opacity duration-500
       " />
-
-      {/* 渐变边框效果 */}
       <div className="
         absolute inset-0
         bg-gradient-to-r from-envelope-400/30 via-ingot-500/30 to-envelope-400/30
@@ -52,7 +49,6 @@ const MintButton = () => {
         rounded-2xl
         animate-gradient-xy
       " />
-
       <Image
         className="
           absolute top-0 right-0
@@ -64,13 +60,11 @@ const MintButton = () => {
         width={200}
         height={200}
       />
-
       <span className="relative flex items-center gap-3">
         <span className="text-4xl animate-bounce">🧧</span>
         <span className="group-hover:text-shadow-glow">Send Some Doge Red Envelope</span>
         <span className="text-4xl animate-bounce">✨</span>
       </span>
-
       <span className="
         relative text-base font-normal
         text-white/80
@@ -79,8 +73,6 @@ const MintButton = () => {
       ">
         Share happy moments with your friends
       </span>
-
-      {/* 顶部渐变光效 */}
       <div className="
         absolute top-0 left-0 w-full h-full
         bg-gradient-to-b from-white/5 to-transparent
