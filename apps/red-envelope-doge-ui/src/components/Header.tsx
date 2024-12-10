@@ -1,6 +1,7 @@
 'use client';
 import { useState } from 'react';
 import Link from 'next/link';
+import ConnectButton from './ConnectButton';
 
 const Header = () => {
   const [activeItem, setActiveItem] = useState('home');
@@ -49,7 +50,7 @@ const Header = () => {
 
           {/* Right decoration */}
           <div className="flex-shrink-0 text-2xl">
-            ✨
+            <ConnectButton />
           </div>
         </div>
       </div>
