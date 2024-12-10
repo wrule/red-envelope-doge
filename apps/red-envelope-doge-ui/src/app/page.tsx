@@ -2,7 +2,7 @@
 export default function Home() {
   return (
     <div>
-      你好，世界
+      <button className="bg-envelope-500 text-white">Mint</button>
     </div>
   );
 }
