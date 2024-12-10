@@ -1,5 +1,7 @@
 'use client';
 
+import Image from 'next/image';
+
 const MintButton = () => {
   return (
     <button
@@ -18,24 +20,17 @@ const MintButton = () => {
         animate-pulse-slow
         border-2 border-white/10
         overflow-hidden
-      "
-    >
-      {/* Background animation effect */}
+      ">
       <div className="absolute inset-0 bg-gradient-to-r from-ingot-500/0 via-ingot-500/20 to-ingot-500/0 blur-xl group-hover:animate-shine" />
-
-      {/* Content */}
+      <Image className="absolute top-0 right-0" src="/images/rp-doge-1.png" alt="rp-doge" width={200} height={200} />
       <span className="relative flex items-center gap-3">
         <span className="text-4xl animate-bounce">🧧</span>
-        <span>Mint NFT</span>
+        <span>Send Some Doge Red Envelope</span>
         <span className="text-4xl animate-bounce">✨</span>
       </span>
-
-      {/* Subtle text */}
       <span className="relative text-base font-normal text-white/80">
-        Get Your Lucky Red Envelope
+        Share happy moments with your friends
       </span>
-
-      {/* Decorative elements */}
       <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-white/5 to-transparent" />
     </button>
   );
