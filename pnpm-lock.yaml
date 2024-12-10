@@ -29,6 +29,15 @@ importers:
 
   apps/red-envelope-doge-ui:
     dependencies:
+      '@web3-react/core':
+        specifier: ^8.2.3
+        version: 8.2.3(@types/react@18.3.14)(immer@10.0.2)(react@18.3.1)
+      '@web3-react/store':
+        specifier: ^8.2.3
+        version: 8.2.3(@types/react@18.3.14)(immer@10.0.2)(react@18.3.1)
+      '@web3-react/types':
+        specifier: ^8.2.3
+        version: 8.2.3(@types/react@18.3.14)(immer@10.0.2)(react@18.3.1)
       next:
         specifier: 14.2.20
         version: 14.2.20(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -838,6 +847,17 @@ packages:
 
   '@ungap/structured-clone@1.2.1':
     resolution: {integrity: sha512-fEzPV3hSkSMltkw152tJKNARhOupqbH96MZWyRjNaYZOMIzbrTeQDG+MTc6Mr2pgzFQzFxAfmhGDNP5QK++2ZA==}
+
+  '@web3-react/core@8.2.3':
+    resolution: {integrity: sha512-0ezmRKhqQpoa9ct2/3erg60zBXfC/f/liYR1mfSGKtIroRkLnPARigZSV6pI+fi8bhfGJ0RKtFWyTCCWZzdq1w==}
+    peerDependencies:
+      react: '>=16.8'
+
+  '@web3-react/store@8.2.3':
+    resolution: {integrity: sha512-qUJQ5pDsYYDra+/+glq2BmIS43HYAiEZ22sLLVh6E75WiZKRNOOqUxBDPe33KTIn718DLt51j+wd2FT+oT/kJQ==}
+
+  '@web3-react/types@8.2.3':
+    resolution: {integrity: sha512-kSG90QkN+n7IOtp10nQ44oS8J7jzfH9EmqnruwBpCGybh1FM/ohyRvUKWYZNfNE4wsjTSpKsINR0/VdDsZMHyg==}
 
   '@yarnpkg/lockfile@1.1.0':
     resolution: {integrity: sha512-GpSwvyXOcOOlV70vbnzjj4fW5xW/FdUF6nQEt1ENy7m4ZCczi1+/buVUPAqmGfqznsORNFzUMjctTIp8a9tuCQ==}
@@ -3367,6 +3387,11 @@ packages:
   uri-js@4.4.1:
     resolution: {integrity: sha512-7rKUyy33Q1yc98pQ1DAmLtwX109F7TIfWlW1Ydo8Wl1ii1SeHieeh0HHfPeL2fMXK6z0s8ecKs9frCuLJvndBg==}
 
+  use-sync-external-store@1.2.0:
+    resolution: {integrity: sha512-eEgnFxGQ1Ife9bzYs6VLi8/4X6CObHMw9Qr9tPY43iKwsPw8xE8+EFsf/2cFZ5S3esXgpWgtSCtLNS41F+sKPA==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+
   utf8@3.0.0:
     resolution: {integrity: sha512-E8VjFIQ/TyQgp+TZfS6l8yp/xWppSAHzidGiRrqe4bK4XP9pTRyKFgGJpO3SN7zdX4DeomTrwaseCHovfpFcqQ==}
 
@@ -3531,6 +3556,21 @@ packages:
   yocto-queue@0.1.0:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
+
+  zustand@4.4.0:
+    resolution: {integrity: sha512-2dq6wq4dSxbiPTamGar0NlIG/av0wpyWZJGeQYtUOLegIUvhM2Bf86ekPlmgpUtS5uR7HyetSiktYrGsdsyZgQ==}
+    engines: {node: '>=12.7.0'}
+    peerDependencies:
+      '@types/react': '>=16.8'
+      immer: '>=9.0'
+      react: '>=16.8'
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+      immer:
+        optional: true
+      react:
+        optional: true
 
 snapshots:
 
@@ -4689,6 +4729,38 @@ snapshots:
       eslint-visitor-keys: 4.2.0
 
   '@ungap/structured-clone@1.2.1': {}
+
+  '@web3-react/core@8.2.3(@types/react@18.3.14)(immer@10.0.2)(react@18.3.1)':
+    dependencies:
+      '@web3-react/store': 8.2.3(@types/react@18.3.14)(immer@10.0.2)(react@18.3.1)
+      '@web3-react/types': 8.2.3(@types/react@18.3.14)(immer@10.0.2)(react@18.3.1)
+      react: 18.3.1
+      zustand: 4.4.0(@types/react@18.3.14)(immer@10.0.2)(react@18.3.1)
+    optionalDependencies:
+      '@ethersproject/providers': 5.7.2
+    transitivePeerDependencies:
+      - '@types/react'
+      - bufferutil
+      - immer
+      - utf-8-validate
+
+  '@web3-react/store@8.2.3(@types/react@18.3.14)(immer@10.0.2)(react@18.3.1)':
+    dependencies:
+      '@ethersproject/address': 5.7.0
+      '@web3-react/types': 8.2.3(@types/react@18.3.14)(immer@10.0.2)(react@18.3.1)
+      zustand: 4.4.0(@types/react@18.3.14)(immer@10.0.2)(react@18.3.1)
+    transitivePeerDependencies:
+      - '@types/react'
+      - immer
+      - react
+
+  '@web3-react/types@8.2.3(@types/react@18.3.14)(immer@10.0.2)(react@18.3.1)':
+    dependencies:
+      zustand: 4.4.0(@types/react@18.3.14)(immer@10.0.2)(react@18.3.1)
+    transitivePeerDependencies:
+      - '@types/react'
+      - immer
+      - react
 
   '@yarnpkg/lockfile@1.1.0': {}
 
@@ -6995,7 +7067,7 @@ snapshots:
 
   rechoir@0.6.2:
     dependencies:
-      resolve: 1.17.0
+      resolve: 1.22.8
 
   recursive-readdir@2.2.3:
     dependencies:
@@ -7651,6 +7723,10 @@ snapshots:
     dependencies:
       punycode: 2.3.1
 
+  use-sync-external-store@1.2.0(react@18.3.1):
+    dependencies:
+      react: 18.3.1
+
   utf8@3.0.0: {}
 
   util-deprecate@1.0.2: {}
@@ -7807,3 +7883,11 @@ snapshots:
   yn@3.1.1: {}
 
   yocto-queue@0.1.0: {}
+
+  zustand@4.4.0(@types/react@18.3.14)(immer@10.0.2)(react@18.3.1):
+    dependencies:
+      use-sync-external-store: 1.2.0(react@18.3.1)
+    optionalDependencies:
+      '@types/react': 18.3.14
+      immer: 10.0.2
+      react: 18.3.1
