@@ -1,10 +1,13 @@
-import Header from '@/components/Header';
-import type { Metadata } from 'next';
+'use client';
 
-export const metadata: Metadata = {
-  title: 'App',
-  description: 'App',
-};
+import { Web3ReactHooks, Web3ReactProvider } from '@web3-react/core';
+import { Connector } from '@web3-react/types';
+import Header from '@/components/Header';
+import { metaMask, metaMaskHooks } from '@/connectors/metaMask';
+
+const connectors: [Connector, Web3ReactHooks][] = [
+  [metaMask, metaMaskHooks],
+];
 
 export default function AppLayout({
   children,
@@ -12,9 +15,11 @@ export default function AppLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div>
-      <Header />
-      <div>{children}</div>
-    </div>
+    <Web3ReactProvider connectors={connectors}>
+      <div>
+        <Header />
+        <div>{children}</div>
+      </div>
+    </Web3ReactProvider>
   );
 }

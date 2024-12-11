@@ -1,6 +1,11 @@
 'use client';
 
+import { metaMaskHooks } from '@/connectors/metaMask';
+import { useWeb3React } from '@web3-react/core';
+
 const ConnectButton = () => {
+  const { connector } = useWeb3React();
+
   return (
     <button
       className="
@@ -15,7 +20,9 @@ const ConnectButton = () => {
         shadow-md hover:shadow-ingot-500/50
         flex items-center gap-2.5
       "
-    >
+      onClick={() => {
+        connector.activate();
+      }}>
       <span className="text-xl">👛</span>
       <span>Connect Wallet</span>
     </button>
