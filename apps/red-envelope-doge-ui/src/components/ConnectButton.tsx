@@ -27,17 +27,19 @@ const ConnectButton = () => {
       onClick={() => {
         connect.connector.activate();
       }}>
-      {connect.isActive ? <>
-        <span className="w-[7.1rem] text-left">{shortenAddress(connect.account!)}</span>
-        <span className="flex justify-center items-center w-[6.5rem] h-[1.5rem] rounded-md text-white bg-gradient-to-r from-nightsky-500 via-nightsky-400 to-nightsky-500 shadow-lg shadow-nightsky-400/30 hover:shadow-nightsky-400/50 animate-gradient-xy transition-all duration-300">
-          {connect.balanceText ? <span>
-            <span>{connect.balanceText}</span>
-            <span className="ml-[0.2rem]">ETH</span>
-          </span> : ''}
-        </span>
-      </> : <>
-        <span className="text-xl">👛</span>
-        <span>Connect Wallet</span>
+      {connect.isLoading ? <span>⌛️ Loading...</span> : <>
+        {connect.isActive ? <>
+          <span className="w-[7.1rem] text-left">{shortenAddress(connect.account!)}</span>
+          <span className="flex justify-center items-center w-[6.5rem] h-[1.5rem] rounded-md text-white bg-gradient-to-r from-nightsky-500 via-nightsky-400 to-nightsky-500 shadow-lg shadow-nightsky-400/30 hover:shadow-nightsky-400/50 animate-gradient-xy transition-all duration-300">
+            {connect.balanceText ? <span>
+              <span>{connect.balanceText}</span>
+              <span className="ml-[0.2rem]">ETH</span>
+            </span> : ''}
+          </span>
+        </> : <>
+          <span className="text-xl">👛</span>
+          <span>Connect Wallet</span>
+        </>}
       </>}
     </button>
   );
