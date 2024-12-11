@@ -29,6 +29,9 @@ importers:
 
   apps/red-envelope-doge-ui:
     dependencies:
+      '@ethersproject/bignumber':
+        specifier: ^5.7.0
+        version: 5.7.0
       '@ethersproject/experimental':
         specifier: ^5.7.0
         version: 5.7.0
