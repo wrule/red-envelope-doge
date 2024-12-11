@@ -22,10 +22,16 @@ const ConnectButton = () => {
       onClick={() => {
         connect.connector.activate();
       }}>
-      <span className="text-xl">👛</span>
-      <span>Connect Wallet</span>
-      <span>{connect.account}</span>
-      <span>{connect.balance?.toString()}</span>
+      {connect.isActive ? <>
+        <span>{connect.account}</span>
+        <span className="w-[7rem] h-[2rem] rounded-lg text-white inline-block bg-nightsky-400 ">{connect.balanceText ? <span>
+          <span>{connect.balanceText}</span>
+          <span className="ml-[0.2rem]">ETH</span>
+        </span> : ''}</span>
+      </> : <>
+        <span className="text-xl">👛</span>
+        <span>Connect Wallet</span>
+      </>}
     </button>
   );
 };

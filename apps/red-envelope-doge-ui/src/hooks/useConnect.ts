@@ -1,5 +1,6 @@
 
-import { useCallback, useEffect, useState } from 'react';
+import { ethers } from 'ethers';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useWeb3React } from '@web3-react/core';
 import { metaMaskHooks } from '@/connectors/metaMask';
 import { BigNumber } from '@ethersproject/bignumber'
@@ -10,6 +11,13 @@ const useBalance = (address: string) => {
   const [balanceLoading, setBalanceLoading] = useState<boolean>(true);
   const [balance, setBalance] = useState<BigNumber | null>(null);
   const provider = useProvider();
+
+  const balanceText = useMemo(() => {
+    if (balance) {
+      return Number(Number(ethers.formatEther(balance.toBigInt())).toFixed(4)).toString();
+    }
+    return '';
+  }, [balance]);
 
   const updateBalance = useCallback(async () => {
     setBalanceLoading(true);
@@ -29,7 +37,7 @@ const useBalance = (address: string) => {
     updateBalance();
   }, [address, provider]);
 
-  return { balance, balanceLoading };
+  return { balance, balanceText, balanceLoading };
 }
 
 const useConnect = () => {
@@ -37,7 +45,7 @@ const useConnect = () => {
   const account = useAccount();
   const isActive = useIsActive();
   const isActivating = useIsActivating();
-  const { balance, balanceLoading } = useBalance(account!);
+  const { balance, balanceText, balanceLoading } = useBalance(account!);
 
   useEffect(() => {
     connector.connectEagerly?.();
@@ -49,6 +57,7 @@ const useConnect = () => {
     isActivating,
     account,
     balance,
+    balanceText,
     isLoading: isActivating || balanceLoading,
   };
 };
