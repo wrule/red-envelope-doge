@@ -4,7 +4,7 @@ import MintButton from "@/components/MintButton";
 
 const App = () => {
   return (
-    <div>
+    <div className="flex justify-center mt-[28vh]">
       <MintButton />
     </div>
   );
