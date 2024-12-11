@@ -1,9 +1,13 @@
+'use client';
+
 import MintButton from "@/components/MintButton";
 
-export default function Home() {
+const App = () => {
   return (
     <div>
-      主页
+      <MintButton />
     </div>
   );
-}
+};
+
+export default App;
