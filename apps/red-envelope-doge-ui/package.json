@@ -9,9 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@ethersproject/abi": "^5.7.0",
     "@ethersproject/bignumber": "^5.7.0",
     "@ethersproject/experimental": "^5.7.0",
     "@ethersproject/providers": "^5.7.2",
+    "@typechain/ethers-v5": "^11.1.2",
     "@web3-react/core": "^8.2.3",
     "@web3-react/eip1193": "^8.2.3",
     "@web3-react/empty": "^8.2.3",
@@ -25,7 +27,8 @@
     "ethers": "^5.7.2",
     "next": "14.2.20",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "typechain": "^8.3.2"
   },
   "devDependencies": {
     "@types/node": "^20",
