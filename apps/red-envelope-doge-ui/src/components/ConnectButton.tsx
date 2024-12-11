@@ -2,13 +2,18 @@
 
 import useConnect from '@/hooks/useConnect';
 
+const shortenAddress = (address: string, chars = 4) => {
+  if (!address) return '';
+  return `${address.substring(0, chars + 2)}...${address.substring(address.length - chars)}`;
+};
+
 const ConnectButton = () => {
   const connect = useConnect();
 
   return (
     <button
       className="
-        px-6 py-2.5
+        px-4 py-2.5
         text-base font-bold
         text-envelope-700
         rounded-lg
@@ -23,11 +28,13 @@ const ConnectButton = () => {
         connect.connector.activate();
       }}>
       {connect.isActive ? <>
-        <span>{connect.account}</span>
-        <span className="w-[7rem] h-[2rem] rounded-lg text-white inline-block bg-nightsky-400 ">{connect.balanceText ? <span>
-          <span>{connect.balanceText}</span>
-          <span className="ml-[0.2rem]">ETH</span>
-        </span> : ''}</span>
+        <span className="w-[7.1rem] text-left">{shortenAddress(connect.account!)}</span>
+        <span className="flex justify-center items-center w-[6.5rem] h-[1.5rem] rounded-md text-white bg-gradient-to-r from-nightsky-500 via-nightsky-400 to-nightsky-500 shadow-lg shadow-nightsky-400/30 hover:shadow-nightsky-400/50 animate-gradient-xy transition-all duration-300">
+          {connect.balanceText ? <span>
+            <span>{connect.balanceText}</span>
+            <span className="ml-[0.2rem]">ETH</span>
+          </span> : ''}
+        </span>
       </> : <>
         <span className="text-xl">👛</span>
         <span>Connect Wallet</span>
