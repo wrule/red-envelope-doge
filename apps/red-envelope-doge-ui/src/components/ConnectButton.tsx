@@ -1,10 +1,9 @@
 'use client';
 
-import { metaMaskHooks } from '@/connectors/metaMask';
-import { useWeb3React } from '@web3-react/core';
+import useConnect from '@/hooks/useConnect';
 
 const ConnectButton = () => {
-  const { connector } = useWeb3React();
+  const connect = useConnect();
 
   return (
     <button
@@ -21,10 +20,12 @@ const ConnectButton = () => {
         flex items-center gap-2.5
       "
       onClick={() => {
-        connector.activate();
+        connect.connector.activate();
       }}>
       <span className="text-xl">👛</span>
       <span>Connect Wallet</span>
+      <span>{connect.account}</span>
+      <span>{connect.balance?.toString()}</span>
     </button>
   );
 };
