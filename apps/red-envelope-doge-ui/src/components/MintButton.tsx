@@ -1,10 +1,14 @@
 'use client';
 
 import Image from 'next/image';
+import { MouseEventHandler } from 'react';
 
-const MintButton = () => {
+const MintButton = (props: {
+  onClick: MouseEventHandler<HTMLButtonElement>,
+}) => {
   return (
     <button
+      onClick={props.onClick}
       className="
         relative
         px-16 py-6
