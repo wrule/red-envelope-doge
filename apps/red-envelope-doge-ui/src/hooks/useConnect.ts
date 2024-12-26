@@ -14,7 +14,7 @@ const useBalance = (address: string) => {
 
   const balanceText = useMemo(() => {
     if (balance) {
-      return Number(Number(ethers.formatEther(balance.toBigInt())).toFixed(4)).toString();
+      return Number(Number(ethers.utils.formatEther(balance.toBigInt())).toFixed(4)).toString();
     }
     return '';
   }, [balance]);
